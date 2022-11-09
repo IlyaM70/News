@@ -1,0 +1,259 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - News</title>
+    
+    <link rel="icon" type="~/image/png" href="~/images/icons/favicon.png"/>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/fonts/fontawesome-5.0.8/css/fontawesome-all.min.css"/>
+    <link rel="stylesheet" type="text/css" href="~/fonts/iconic/css/material-design-iconic-font.min.css"/>
+    <link rel="stylesheet" type="text/css" href="~/lib/animate/animate.css"/>
+	<link rel="stylesheet" type="text/css" href="~/lib/css-hamburgers/hamburgers.min.css"/>
+    <link rel="stylesheet" type="text/css" href="~/lib/animsition/css/animsition.min.css"/>
+    <link rel="stylesheet" type="text/css" href="~/css/util.min.css"/>
+    <link rel="stylesheet" type="text/css" href="~/css/main.css"/>
+
+</head>
+<body>
+    
+	<!-- Header -->
+	<header>
+		<!-- Header desktop -->
+		
+
+			<!-- Header Mobile -->
+			<div class="wrap-header-mobile">
+				<!-- Logo moblie -->		
+				<div class="logo-mobile">
+					<a asp-controller="Home" asp-action="Index"><img src="~/images/icons/logo-01.png" alt="IMG-LOGO"></a>
+				</div>
+
+				<!-- Button show menu -->
+				<div class="btn-show-menu-mobile hamburger hamburger--squeeze m-r--8">
+					<span class="hamburger-box">
+						<span class="hamburger-inner"></span>
+					</span>
+				</div>
+			</div>
+
+			<!-- Menu Mobile -->
+			<div class="menu-mobile">
+				
+
+				<ul class="main-menu-m">
+					<li>
+						<a asp-controller="Home" asp-action="Index">Home</a>
+						
+					</li>
+					<li>
+						<a href="#">Categories</a>
+						<ul class="sub-menu-m">
+						@*@foreach (var item in @Model.Categories)
+						{
+							<li><a asp-action="Category" asp-controller="Category">@item.Name</a></li>
+							
+						}*@
+						
+							<li><a asp-action="Category" asp-controller="Category" asp-route-categoryId=1>Business</a></li>
+							<li><a asp-action="Category" asp-controller="Category" asp-route-categoryId=2>Politics</a></li>
+							<li><a asp-action="Category" asp-controller="Category" asp-route-categoryId=3>Technology</a></li>
+							<li><a asp-action="Category" asp-controller="Category" asp-route-categoryId=4>Fashion</a></li>
+							<li><a asp-action="Category" asp-controller="Category" asp-route-categoryId=5>Life Style</a></li>
+							
+							
+							
+						</ul>
+
+						<span class="arrow-main-menu-m">
+							<i class="fa fa-angle-right" aria-hidden="true"></i>
+						</span>
+					</li>
+					<li>
+						<a asp-controller="Post" asp-action="Add">Add Post</a>
+
+					</li>
+
+				</ul>
+			</div>
+
+			<!--  -->
+			<div class="wrap-logo no-banner container">
+				<!-- Logo desktop -->		
+				<div class="logo">
+					<a asp-controller="Home" asp-action="Index"><img src="~/images/icons/logo-01.png" alt="LOGO"></a>
+				</div>
+			</div>	
+
+			<!--  -->
+			<div class="wrap-main-nav">
+				<div class="main-nav">
+					<!-- Menu desktop -->
+					<nav class="menu-desktop">
+						<a class="logo-stick"asp-controller="Home" asp-action="Index">
+							<img src="images/icons/logo-01.png" alt="LOGO">
+						</a>
+
+						<ul class="main-menu justify-content-center">
+							<li class="main-menu-item">
+								<a asp-controller="Home" asp-action="Index">Home</a>
+								
+							</li>
+							<li>
+								<a href="#">Categories</a>
+								<ul class="sub-menu">
+									
+									@*@foreach (var item in @Model.Categories)
+									{
+										<li><a asp-action="Category" asp-controller="Category">@item.Name</a></li>
+									}*@
+									<li><a asp-action="Category" asp-controller="Category" asp-route-categoryId=1>Business</a></li>
+									<li><a asp-action="Category" asp-controller="Category" asp-route-categoryId=2>Politics</a></li>
+									<li><a asp-action="Category" asp-controller="Category" asp-route-categoryId=3>Technology</a></li>
+									<li><a asp-action="Category" asp-controller="Category" asp-route-categoryId=4>Fashion</a></li>
+									<li><a asp-action="Category" asp-controller="Category" asp-route-categoryId=5>Life Style</a></li>
+
+								</ul>
+								
+							</li>
+							<li>
+							<a asp-controller="Post" asp-action="Add">Add Post</a>
+
+							</li>
+							
+
+							
+						</ul>
+					</nav>
+				</div>
+			</div>	
+		
+	</header>
+
+
+
+
+
+
+    
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+   
+
+	<!-- Footer -->
+	<footer>
+		<div class="bg2 p-t-40 p-b-25">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-4 p-b-20">
+						<div class="size-h-3 flex-s-c">
+							<a asp-controller="Home"
+								asp-action="Index">
+								<img class="max-s-full" src="~/images/icons/logo-02.png" alt="LOGO">
+							</a>
+						</div>
+
+						<div>
+							<p class="f1-s-1 cl11 p-b-16">
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tempor magna eget elit efficitur, at accumsan sem placerat. Nulla tellus libero, mattis nec molestie at, facilisis ut turpis. Vestibulum dolor metus, tincidunt eget odio
+							</p>
+
+							<p class="f1-s-1 cl11 p-b-16">
+								Any questions? Call us on (+1) 96 716 6879
+							</p>
+
+							<div class="p-t-15">
+								<a href="#" class="fs-18 cl11 hov-cl10 trans-03 m-r-8">
+									<span class="fab fa-facebook-f"></span>
+								</a>
+
+								<a href="#" class="fs-18 cl11 hov-cl10 trans-03 m-r-8">
+									<span class="fab fa-twitter"></span>
+								</a>
+
+								<a href="#" class="fs-18 cl11 hov-cl10 trans-03 m-r-8">
+									<span class="fab fa-pinterest-p"></span>
+								</a>
+
+								<a href="#" class="fs-18 cl11 hov-cl10 trans-03 m-r-8">
+									<span class="fab fa-vimeo-v"></span>
+								</a>
+
+								<a href="#" class="fs-18 cl11 hov-cl10 trans-03 m-r-8">
+									<span class="fab fa-youtube"></span>
+								</a>
+							</div>
+						</div>
+					</div>
+
+					
+
+					<div class="col-sm-6 col-lg-4 p-b-20">
+						<div class="size-h-3 flex-s-c">
+							<h5 class="f1-m-7 cl0">
+								Category
+							</h5>
+						</div>
+
+						<ul class="m-t--12">
+
+
+							<li class="how-bor1 p-rl-5 p-tb-10">
+								<a class="f1-s-5 cl11 hov-cl10 trans-03 p-tb-8"
+									asp-action="Category" asp-controller="Category" asp-route-categoryId=1>Business</a>
+							</li>
+							<li class="how-bor1 p-rl-5 p-tb-10">
+								<a class="f1-s-5 cl11 hov-cl10 trans-03 p-tb-8"
+									asp-action="Category" asp-controller="Category" asp-route-categoryId=2>Politics</a>
+							</li>
+							<li class="how-bor1 p-rl-5 p-tb-10">
+								<a class="f1-s-5 cl11 hov-cl10 trans-03 p-tb-8"
+									asp-action="Category" asp-controller="Category" asp-route-categoryId=3>Technology</a>
+							</li>
+							<li class="how-bor1 p-rl-5 p-tb-10">
+								<a class="f1-s-5 cl11 hov-cl10 trans-03 p-tb-8"
+									asp-action="Category" asp-controller="Category" asp-route-categoryId=4>Fashion</a>
+							</li>
+							<li class="how-bor1 p-rl-5 p-tb-10">
+								<a class="f1-s-5 cl11 hov-cl10 trans-03 p-tb-8"
+									asp-action="Category" asp-controller="Category" asp-route-categoryId=5>Life Style</a>
+							</li>
+
+
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="bg11">
+			<div class="container size-h-4 flex-c-c p-tb-15">
+				<span class="f1-s-1 cl0 txt-center">
+					Copyright © 
+
+					
+				</span>
+			</div>
+		</div>
+	</footer>
+
+	<!-- Back to top -->
+	<div class="btn-back-to-top" id="myBtn">
+		<span class="symbol-btn-back-to-top">
+			<span class="fas fa-angle-up"></span>
+		</span>
+	</div>
+
+
+    
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/animsition/js/animsition.min.js"></script>
+    <script src="~/lib/bootstrap/js/popper.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/js/main.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

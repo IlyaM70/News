@@ -1,0 +1,62 @@
+﻿@{
+	@model Post
+	
+
+}
+
+	<!-- Page heading -->
+	<div class="container p-t-4 p-b-40 mt-4 text-center">
+		<h2 class="f1-l-1 cl2">
+			@ViewBag.Action Post
+		</h2>
+	</div>
+
+		<!-- Content -->
+	<section class="bg0 p-b-60">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-7 col-lg-8 p-b-80">
+					<div class="p-r-10 p-r-0-sr991">
+						<form asp-action="@ViewBag.FormAction" asp-controller="Post" method="post"  enctype="multipart/form-data">
+
+							<input asp-for="Title" class="bo-1-rad-3 bocl13 size-a-19 f1-s-13 cl5 plh6 p-rl-18 m-b-20"
+							type="text" placeholder="Title">
+							<span class="text-danger" asp-validation-for="Title"></span>
+
+							<label asp-for="ImageUrl" class="">Image:</label>
+							<input asp-for="ImageUrl" class="bocl13 m-b-20" type="file">
+							<span class="text-danger" asp-validation-for="ImageUrl"></span>
+
+							<select asp-for="CategoryId" class="bo-1-rad-3 bocl13 size-a-19 f1-s-13 cl5 plh6 p-rl-18 m-b-20"
+							asp-items="@ViewBag.Categories" >
+
+							</select> 
+
+							 <textarea id="tiny"  asp-for="Content"  rows="3"
+							  class="bo-1-rad-3 bocl13 size-a-15 f1-s-13 cl5 plh6 p-rl-18 p-tb-14 m-b-20"
+							  placeholder="Content"
+							 ></textarea>
+							<span  class="text-danger" asp-validation-for="Content"></span>
+
+							<div class="d-flex justify-content-between">
+							<input type="submit" class="size-a-20 bg2 borad-3 f1-s-12 cl0 hov-btn1 trans-03 p-rl-15 m-t-20" value="@ViewBag.Action">
+
+							@if (ViewBag.Action == "Redact")
+							{
+								<a	asp-controller="Post" asp-action="Delete" asp-route-id="@Model.Id"
+									class="btn size-a-20 bg2 borad-3 f1-s-12 cl0 hov-btn1 trans-03 p-rl-15 m-t-20">DELETE POST</a>
+							}
+							</div>
+
+
+
+						</form>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+@section Scripts{
+		<partial name="_ValidationScriptsPartial"></partial>
+	}
